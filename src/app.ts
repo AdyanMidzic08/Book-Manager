@@ -3,6 +3,7 @@ import { readBooks, writeBook } from "./storage";
 import { Book } from "./type";
 import { randomUUID, UUID } from "node:crypto";
 import { error } from "node:console";
+import { read } from "node:fs";
 
 const app = express();
 app.use(express.json());
@@ -40,6 +41,27 @@ app.post("/books", (req,res) => {
 
     res.status(201).json({book}); 
 })
+
+app.delete("/books/:id", (req,res) => {
+    const id = req.params.id;
+
+    let books = readBooks();
+    let newBooks: Book[] = []; 
+
+    for(let i = 0; i < books.length; i++) {
+        if(books[i].id !== id) {
+            newBooks.push(books[i]);
+        }
+    }
+
+    if(newBooks.length == books.length) {
+        return res.status(400).json({error: "id not found"}); 
+    }else {
+        writeBook(newBooks);
+        return res.status(201).json({message: "successfully deleted"})
+    }
+    
+}) 
 
 
 
