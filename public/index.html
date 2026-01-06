@@ -42,7 +42,9 @@
               <label for="pages">Seiten</label>
               <input type="number" id="pages" placeholder="200" />
             </div>
-            <button type="submit" class="btn-primary">Buch speichern</button>
+            <button
+            onclick="event.preventDefault(); postBooks(title.value, author.value, pages.value)"
+            id="submitBtn" type="submit" class="btn-primary">Buch speichern</button>
           </form>
         </section>
 
@@ -50,33 +52,13 @@
         <section class="book-list-section">
           <h2>Deine Sammlung</h2>
           <div id="book-list" class="book-grid">
-            <!-- Beispiel Karte (wird später dynamisch erzeugt) -->
-            <div class="book-card">
-              <div class="book-info">
-                <h3>Der Alchimist</h3>
-                <p class="author">Paulo Coelho</p>
-                <span class="isbn">ISBN: 978-3257237274</span>
-              </div>
-              <div class="book-actions">
-                <button class="btn-icon delete">Löschen</button>
-              </div>
-            </div>
-
-            <div class="book-card">
-              <div class="book-info">
-                <h3>Clean Code</h3>
-                <p class="author">Robert C. Martin</p>
-                <span class="isbn">ISBN: 978-0132350884</span>
-              </div>
-              <div class="book-actions">
-                <button class="btn-icon delete">Löschen</button>
-              </div>
-            </div>
-          </div>
         </section>
       </main>
     </div>
-    <!-- Hier kannst du später dein Frontend-Skript einbinden -->
-    <!-- <script src="./client.js"></script> -->
+    <script>
+        let title = document.getElementById('title') 
+        let author = document.getElementById('author') 
+        let pages = document.getElementById('pages') 
+    </script>
   </body>
 </html>

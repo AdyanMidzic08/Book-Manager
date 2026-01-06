@@ -7,8 +7,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-// import { PORT } from "./server";
 let bookList = document.getElementById("book-list");
+let submitButton = document.getElementById("submitBtn");
 const API_URL = `http://localhost:3000/books`;
 function loadBooks() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -21,6 +21,7 @@ function loadBooks() {
                 let author = books[i].author;
                 let id = books[i].id;
                 let read = books[i].read;
+                let sites = books[i].sites;
                 bookList.innerHTML += `
         <div class="book-card">
               <div class="book-info">
@@ -28,10 +29,11 @@ function loadBooks() {
                 <p class="author">${author}</p>
                 <span class="isbn">ID: ${id}</span>
                 <p>Read: ${read}</p>
+                <p>Sites: ${sites}</p>
               </div>
             <div class="book-actions">
                 <button class="btn-icon read">Read</button>
-                <button class="btn-icon delete">Löschen</button>
+                <button onclick="deleteBook('${id}')" class="btn-icon delete">Löschen</button>
             </div>
         </div>
         `;
@@ -40,6 +42,39 @@ function loadBooks() {
         catch (error) {
             console.error("API Fetch error");
         }
+    });
+}
+function deleteBook(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch(`${API_URL}/${id}`, {
+            method: "DELETE",
+        });
+        yield loadBooks();
+    });
+}
+function postBooks(title, author, sites) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            let response = yield fetch(API_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    title: title,
+                    author: author,
+                    sites: sites,
+                }),
+            });
+            if (!response.ok) {
+                throw new Error("failed to add a book");
+            }
+            const data = yield response.json();
+        }
+        catch (error) {
+            console.error("Fetch Error:", error);
+        }
+        loadBooks();
     });
 }
 loadBooks();

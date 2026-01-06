@@ -3,60 +3,63 @@
     "title": "Faust",
     "author": "Johann Wolfgang von Goethe",
     "id": "b61e99e7-8a3a-4062-bd5e-5a4c50fd1536",
-    "read": false
+    "read": false,
+    "sites": 400
   },
   {
     "title": "Die Leiden des jungen Werther",
     "author": "Johann Wolfgang von Goethe",
     "id": "8980d5b8-4e89-424c-8e61-db445fa8e38b",
-    "read": false
+    "read": false,
+    "sites": 400
   },
   {
     "title": "Der Prozess",
     "author": "Franz Kafka",
     "id": "1759c028-8942-43aa-b9bb-be1e4e108f76",
-    "read": false
+    "read": false,
+    "sites": 400
   },
   {
     "title": "Die Verwandlung",
     "author": "Franz Kafka",
     "id": "205dd612-ef71-4958-a1b1-d465db6afcf4",
-    "read": false
+    "read": false,
+    "sites": 400
   },
   {
     "title": "Effi Briest",
     "author": "Theodor Fontane",
     "id": "198a088c-ed1d-403f-ac82-f7cf65bfc252",
-    "read": false
+    "read": false,
+    "sites": 400
   },
   {
     "title": "Der Steppenwolf",
     "author": "Hermann Hesse",
     "id": "b7f4efc6-0d8d-4a69-b4da-156683baefbb",
-    "read": false
+    "read": false,
+    "sites": 400
   },
   {
     "title": "Im Westen nichts Neues",
     "author": "Erich Maria Remarque",
     "id": "4e198d9c-b137-4958-8120-30c614e29d00",
-    "read": false
+    "read": false,
+    "sites": 400
   },
   {
     "title": "1984",
     "author": "George Orwell",
     "id": "7b542a68-0191-4e14-943b-42a360462abc",
-    "read": false
+    "read": false,
+    "sites": 400
   },
   {
     "title": "Schöne neue Welt",
     "author": "Aldous Huxley",
     "id": "e16d22a3-13b2-490b-b3f3-8cdb12ce07f6",
-    "read": false
-  },
-  {
-    "title": "Fahrenheit 451",
-    "author": "Ray Bradbury",
-    "id": "ee0a15d1-846a-45b2-aef2-65d876553e19",
-    "read": false
+    "read": false,
+    "sites": 400
   }
 ]

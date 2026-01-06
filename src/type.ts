@@ -2,5 +2,6 @@ export interface Book {
     title: string,
     author: string,
     id: string,
-    read: boolean
+    read: boolean,
+    sites: number
 }

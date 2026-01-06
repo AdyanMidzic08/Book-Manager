@@ -22,6 +22,7 @@ app.get("/books", (req, res) => {
 app.post("/books", (req, res) => {
   const { title } = req.body;
   const { author } = req.body;
+  const { sites } = req.body;
 
   if (!title) {
     return res.status(400).json({ error: "Title not added" });
@@ -34,8 +35,9 @@ app.post("/books", (req, res) => {
   let book: Book = {
     title,
     author,
+    sites,
     id: randomUUID(),
-    read: false,
+    read: false
   };
 
   books.push(book);
