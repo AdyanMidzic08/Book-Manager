@@ -37,7 +37,7 @@ app.post("/books", (req, res) => {
     author,
     sites,
     id: randomUUID(),
-    read: false
+    read: false,
   };
 
   books.push(book);
@@ -78,6 +78,7 @@ app.put("/books/:id", (req, res) => {
       } else {
         books[i].read = false;
       }
+      writeBook(books);
       return res.status(200).json({ message: "successfully changed!" });
     }
   }

@@ -8,6 +8,9 @@ async function loadBooks() {
     let response = await fetch(API_URL);
     let books = await response.json();
 
+    // Sort books: unread first, read last
+    books.sort((a: any, b: any) => (a.read === b.read ? 0 : a.read ? 1 : -1));
+
     bookList.innerHTML = "";
 
     for (let i = 0; i < books.length; i++) {
@@ -17,8 +20,10 @@ async function loadBooks() {
       let read = books[i].read;
       let sites = books[i].sites;
 
+      let cardClass = read ? "book-card is-read" : "book-card";
+
       bookList.innerHTML += `
-        <div class="book-card">
+        <div class="${cardClass}">
               <div class="book-info">
                 <h3>${title}</h3>
                 <p class="author">${author}</p>
@@ -27,7 +32,7 @@ async function loadBooks() {
                 <p>Sites: ${sites}</p>
               </div>
             <div class="book-actions">
-                <button class="btn-icon read">Read</button>
+                <button id="${id}" onclick="readBook('${id}')" class="btn-icon read">Read: ${read}</button>
                 <button onclick="deleteBook('${id}')" class="btn-icon delete">Löschen</button>
             </div>
         </div>
@@ -69,5 +74,22 @@ async function postBooks(title: string, author: string, sites: number) {
 
   loadBooks();
 }
+
+async function readBook(id: string) {
+  try {
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "PUT",
+    });
+
+    if (response.ok) {
+      await loadBooks();
+    }
+  } catch (error) {
+    console.error("Error updating book:", error);
+  }
+}
+
+(window as any).deleteBook = deleteBook;
+(window as any).readBook = readBook;
 
 loadBooks();

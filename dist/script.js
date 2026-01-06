@@ -15,6 +15,8 @@ function loadBooks() {
         try {
             let response = yield fetch(API_URL);
             let books = yield response.json();
+            // Sort books: unread first, read last
+            books.sort((a, b) => (a.read === b.read ? 0 : a.read ? 1 : -1));
             bookList.innerHTML = "";
             for (let i = 0; i < books.length; i++) {
                 let title = books[i].title;
@@ -22,8 +24,9 @@ function loadBooks() {
                 let id = books[i].id;
                 let read = books[i].read;
                 let sites = books[i].sites;
+                let cardClass = read ? "book-card is-read" : "book-card";
                 bookList.innerHTML += `
-        <div class="book-card">
+        <div class="${cardClass}">
               <div class="book-info">
                 <h3>${title}</h3>
                 <p class="author">${author}</p>
@@ -32,7 +35,7 @@ function loadBooks() {
                 <p>Sites: ${sites}</p>
               </div>
             <div class="book-actions">
-                <button class="btn-icon read">Read</button>
+                <button id="${id}" onclick="readBook('${id}')" class="btn-icon read">Read: ${read}</button>
                 <button onclick="deleteBook('${id}')" class="btn-icon delete">Löschen</button>
             </div>
         </div>
@@ -77,4 +80,21 @@ function postBooks(title, author, sites) {
         loadBooks();
     });
 }
+function readBook(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const response = yield fetch(`${API_URL}/${id}`, {
+                method: "PUT",
+            });
+            if (response.ok) {
+                yield loadBooks();
+            }
+        }
+        catch (error) {
+            console.error("Error updating book:", error);
+        }
+    });
+}
+window.deleteBook = deleteBook;
+window.readBook = readBook;
 loadBooks();

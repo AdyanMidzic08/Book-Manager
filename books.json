@@ -3,14 +3,14 @@
     "title": "Faust",
     "author": "Johann Wolfgang von Goethe",
     "id": "b61e99e7-8a3a-4062-bd5e-5a4c50fd1536",
-    "read": false,
+    "read": true,
     "sites": 400
   },
   {
     "title": "Die Leiden des jungen Werther",
     "author": "Johann Wolfgang von Goethe",
     "id": "8980d5b8-4e89-424c-8e61-db445fa8e38b",
-    "read": false,
+    "read": true,
     "sites": 400
   },
   {

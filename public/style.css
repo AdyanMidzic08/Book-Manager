@@ -228,3 +228,10 @@ input:focus {
     background-color: var(--color-text-dark);
     color: var(--color-surface);
 }
+
+.book-card.is-read {
+    background-color: #e0e0e0;
+    border-bottom: 4px solid #a0a0a0;
+    opacity: 0.9;
+}
+
