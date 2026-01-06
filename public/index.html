@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Manager</title>
     <link rel="stylesheet" href="./style.css" />
     <script src="../dist/script.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
   </head>
   <body>
     <div class="app-container">
       <header>
         <h1>My Library</h1>
-        <p>Verwalte deine Büchersammlung</p>
+        <p>Manage your book collection</p>
       </header>
 
       <main>
-        <!-- Formular Bereich -->
+        <!-- Form Area -->
         <section class="add-book-section">
-          <h2>Neues Buch hinzufügen</h2>
+          <h2>Add New Book</h2>
           <form id="book-form">
             <div class="form-group">
-              <label for="title">Titel</label>
+              <label for="title">Title</label>
               <input
                 type="text"
                 id="title"
-                placeholder="Der große Gatsby"
+                placeholder="The Great Gatsby"
                 required
               />
             </div>
             <div class="form-group">
-              <label for="author">Autor</label>
+              <label for="author">Author</label>
               <input
                 type="text"
                 id="author"
@@ -39,18 +39,18 @@
               />
             </div>
             <div class="form-group">
-              <label for="pages">Seiten</label>
+              <label for="pages">Pages</label>
               <input type="number" id="pages" placeholder="200" />
             </div>
             <button
             onclick="event.preventDefault(); postBooks(title.value, author.value, pages.value)"
-            id="submitBtn" type="submit" class="btn-primary">Buch speichern</button>
+            id="submitBtn" type="submit" class="btn-primary">Save Book</button>
           </form>
         </section>
 
-        <!-- Liste Bereich -->
+        <!-- List Area -->
         <section class="book-list-section">
-          <h2>Deine Sammlung</h2>
+          <h2>Your Collection</h2>
           <div id="book-list" class="book-grid">
         </section>
       </main>

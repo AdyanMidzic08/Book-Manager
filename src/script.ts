@@ -33,7 +33,7 @@ async function loadBooks() {
               </div>
             <div class="book-actions">
                 <button id="${id}" onclick="readBook('${id}')" class="btn-icon read">Read: ${read}</button>
-                <button onclick="deleteBook('${id}')" class="btn-icon delete">Löschen</button>
+                <button onclick="deleteBook('${id}')" class="btn-icon delete">Delete</button>
             </div>
         </div>
         `;
