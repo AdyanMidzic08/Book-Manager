@@ -7,6 +7,7 @@ import { read } from "node:fs";
 
 const app = express();
 app.use(express.json());
+app.use(express.static("public"));
 
 app.get("/", (req,res) => {
     res.send("app is running")
