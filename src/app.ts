@@ -61,7 +61,28 @@ app.delete("/books/:id", (req,res) => {
         return res.status(201).json({message: "successfully deleted"})
     }
     
-}) 
+})
+
+
+app.put("/books/:id", (req,res) => {
+    const id = req.params.id;
+
+    let books = readBooks();
+
+    for(let i = 0; i < books.length; i++) {
+        if(books[i].id === id) {
+            if(!books[i].read) {
+                books[i].read = true;
+            }else {
+                books[i].read = false;
+            }
+           return res.status(200).json({message: "successfully changed!"});
+        }
+    }
+
+    return res.status(404).json({error: "ID not found"})
+
+})
 
 
 
