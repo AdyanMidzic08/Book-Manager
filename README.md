@@ -107,6 +107,9 @@ ISC License
 
 **AdyanMidzic08** - [GitHub](https://github.com/AdyanMidzic08)
 
+**Raghav Handa** - [GitHub](https://github.com/Raghav-Handa)
+
+
 ---
 
 ⭐ Star this repo if you find it helpful!
